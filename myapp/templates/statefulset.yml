@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: race-container
-          image: vinaikumarp/f1_race:v1.1.0
+          image: vinaikumarp/f1_race:v1.1
           ports:
             - containerPort: 80
           resources:
