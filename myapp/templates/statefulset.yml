@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: race-container
-          image: vinaikumarp/movie-image:1.2
+          image: vinaikumarp/movies-image:1.2
           ports:
             - containerPort: 80
           resources:
