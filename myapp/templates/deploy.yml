@@ -15,7 +15,7 @@ metadata:
     environment: "development"
 
 spec:
-  replicas: 3                       # Number of Pods
+  replicas: 2                       # Number of Pods
 
   selector:
     matchLabels:
@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
         - name: deploy-quest
-          image: vinaikumarp/f1_race:v1.1.0
+          image: vinaikumarp/f1_race:v1.1
 
           ports:
             - containerPort: 80
