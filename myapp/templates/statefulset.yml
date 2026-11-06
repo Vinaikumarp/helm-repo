@@ -29,6 +29,7 @@ spec:
             requests:
               memory: "50Mi"
               cpu: "100m"
+
           startupProbe:
             httpGet:
               path: /
