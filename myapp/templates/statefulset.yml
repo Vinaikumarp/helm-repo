@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: race-deployment
+  namespace: dev
 spec:
   serviceName: race-service
   replicas: 3
