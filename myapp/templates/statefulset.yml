@@ -22,3 +22,10 @@ spec:
           image: vinaikumarp/f1_race:v1.1.0
           ports:
             - containerPort: 80
+          resources:
+            limits:
+              memory: "100Mi"
+              cpu: "120m"
+            requests:
+              memory: "50Mi"
+              cpu: "100m"  
