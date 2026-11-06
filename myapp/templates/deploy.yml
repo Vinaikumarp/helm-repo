@@ -1,0 +1,61 @@
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: deployquest                 # Deployment name
+  namespace: dev                    # Namespace
+  labels:
+    app: tracker
+
+  # Deployment annotations
+  annotations:
+    description: "DeployQuest application deployment"
+    owner: "DevOps Team"
+    environment: "development"
+
+spec:
+  replicas: 3                       # Number of Pods
+
+  selector:
+    matchLabels:
+      app: tracker                  # Must match Pod labels
+
+  template:
+    metadata:
+      labels:
+        app: tracker
+
+      # Pod annotations
+      annotations:
+        description: "DeployQuest application Pod"
+        version: "1.1.0"
+
+    spec:
+      containers:
+        - name: deploy-quest
+          image: vinaikumarp/f1_race:v1.1.0
+
+          ports:
+            - containerPort: 80
+
+          resources:
+            limits:
+              memory: "100Mi"
+              cpu: "120m"
+            requests:
+              memory: "50Mi"
+              cpu: "100m"
+
+      # Node affinity
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 1
+              preference:
+                matchExpressions:
+                  - key: kubernetes.io/arch
+                    operator: In
+                    values:
+                      - amd64
+

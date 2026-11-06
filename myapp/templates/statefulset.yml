@@ -1,0 +1,23 @@
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: race-deployment
+spec:
+  serviceName: race-service
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: race
+
+  template:
+    metadata:
+      labels:
+        app: race
+    spec:
+      containers:
+        - name: race-container
+          image: nginx:latest
+          ports:
+            - containerPort: 80

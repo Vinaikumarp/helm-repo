@@ -1,0 +1,26 @@
+
+apiVersion: apps/v1
+kind: DaemonSet
+
+metadata:
+  name: race-daemonset
+  namespace: default
+  labels:
+    app: race
+
+spec:
+  selector:
+    matchLabels:
+      app: race
+
+  template:
+    metadata:
+      labels:
+        app: race
+
+    spec:
+      containers:
+        - name: race-container
+          image: nginx:latest
+          ports:
+            - containerPort: 80
