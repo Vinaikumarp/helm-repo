@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
         - name: race-container
-          image: nginx:latest
+          image: vinaikumarp/f1_race:v1.1.0
           ports:
             - containerPort: 80
